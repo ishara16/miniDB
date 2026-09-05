@@ -1,0 +1,2 @@
+tableA (id int, val int)
+tableB (id int, val int)
