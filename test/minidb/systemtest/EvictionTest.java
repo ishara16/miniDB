@@ -7,7 +7,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import minidb.*;
 
 /**
@@ -35,7 +34,7 @@ public class EvictionTest extends MiniDbTestBase {
         long endMem = SystemTestUtil.getMemoryFootprint();
         long memDiff = (endMem - beginMem) / (1<<20);
         if (memDiff > MEMORY_LIMIT_IN_MB) {
-            Assert.fail("Did not evict enough pages.  Scan took " + memDiff + " MB of RAM, when limit was " + MEMORY_LIMIT_IN_MB);
+            fail("Did not evict enough pages.  Scan took " + memDiff + " MB of RAM, when limit was " + MEMORY_LIMIT_IN_MB);
         }
     }
 

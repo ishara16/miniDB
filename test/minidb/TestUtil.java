@@ -127,8 +127,7 @@ public class TestUtil {
      */
     public static void matchAllTuples(DbIterator expected, DbIterator actual) throws
             DbException, TransactionAbortedException {
-        // TODO(ghuo): this n^2 set comparison is kind of dumb, but we haven't
-        // implemented hashCode or equals for tuples.
+        // n^2 set comparison, since Tuple doesn't implement hashCode/equals.
         boolean matched = false;
         while (expected.hasNext()) {
             Tuple expectedTup = expected.next();

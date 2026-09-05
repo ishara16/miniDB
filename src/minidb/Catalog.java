@@ -47,18 +47,6 @@ public class Catalog {
     }
 
     /**
-     * Add a new table to the catalog.
-     * This table has tuples formatted using the specified TupleDesc and its
-     * contents are stored in the specified DbFile.
-     * @param file the contents of the table to add;  file.getId() is the identfier of
-     *    this file/tupledesc param for the calls getTupleDesc and getFile
-     * @param t the format of tuples that are being added
-     */
-    /*public void addTable(DbFile file) {
-        addTable(file, (new UUID()).toString());
-    }*/
-
-    /**
      * Return the id of the table with a specified name,
      * @throws NoSuchElementException if the table doesn't exist
      */
@@ -126,7 +114,6 @@ public class Catalog {
             while ((line = br.readLine()) != null) {
                 //assume line is of the format name (field type, field type, ...)
                 String name = line.substring(0, line.indexOf("(")).trim();
-                //System.out.println("TABLE NAME: " + name);
                 String fields = line.substring(line.indexOf("(") + 1, line.indexOf(")")).trim();
                 String[] els = fields.split(",");
                 ArrayList<String> names = new ArrayList<String>();

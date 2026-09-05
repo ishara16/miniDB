@@ -1,7 +1,6 @@
 package minidb;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.*;
 
 /**
@@ -107,7 +106,7 @@ public class HeapFile implements DbFile {
         BufferPool bp = Database.getBufferPool();
         for(int p=0; p<numPages; p++) {
 			HeapPageId pId = new HeapPageId(tableId, p);
-			//TODO: maintain a free space list in order to avoid iterating through all pages
+			// Scans pages linearly for free space; a free-space index would avoid this for large files.
         	HeapPage hp = (HeapPage) bp.getPage(tid, pId, Permissions.READ_ONLY);
         	if(hp.getNumEmptySlots() > 0) {
         		// if there is space on this page, acquire write lock before inserting tuple into the page
@@ -137,7 +136,7 @@ public class HeapFile implements DbFile {
     public Page deleteTuple(TransactionId tid, Tuple t)
         throws DbException, TransactionAbortedException {
 		HeapPage hp = (HeapPage) Database.getBufferPool().getPage(tid, t.getRecordId().getPageId(), Permissions.READ_WRITE);
-		//TODO: Figure out how to garbage collect empty pages and how to defragment data in heap files
+		// Emptied pages are left in place rather than reclaimed or defragmented.
 		hp.deleteTuple(t);
 		hp.markDirty(true, tid);
 		return hp;

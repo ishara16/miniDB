@@ -49,7 +49,7 @@ public class RecordId {
      */
     @Override
     public int hashCode() {
-    	return new Integer(String.valueOf(pid.hashCode()) + String.valueOf(tupleNum));
+    	return Integer.parseInt(String.valueOf(pid.hashCode()) + String.valueOf(tupleNum));
     }
     
 }

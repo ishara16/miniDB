@@ -7,7 +7,6 @@ import org.junit.Test;
 import minidb.systemtest.MiniDbTestBase;
 
 import static org.junit.Assert.*;
-import junit.framework.Assert;
 import junit.framework.JUnit4TestAdapter;
 
 public class TupleDescTest extends MiniDbTestBase {
@@ -97,7 +96,7 @@ public class TupleDescTest extends MiniDbTestBase {
             // Make sure you throw exception for non-existent fields
             try {
                 td.nameToId("foo");
-                Assert.fail("foo is not a valid field name");
+                fail("foo is not a valid field name");
             } catch (NoSuchElementException e) {
                 // expected to get here
             }
@@ -105,7 +104,7 @@ public class TupleDescTest extends MiniDbTestBase {
             // Make sure you throw exception for null searches
             try {
                 td.nameToId(null);
-                Assert.fail("null is not a valid field name");
+                fail("null is not a valid field name");
             } catch (NoSuchElementException e) {
                 // expected to get here
             }
@@ -114,7 +113,7 @@ public class TupleDescTest extends MiniDbTestBase {
             td = Utility.getTupleDesc(len);
             try {
                 td.nameToId(prefix);
-                Assert.fail("no fields are named, so you can't find it");
+                fail("no fields are named, so you can't find it");
             } catch (NoSuchElementException e) {
                 // expected to get here
             }

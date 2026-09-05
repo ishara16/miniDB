@@ -1,10 +1,10 @@
 package minidb;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.NoSuchElementException;
 
-import junit.framework.Assert;
 import junit.framework.JUnit4TestAdapter;
 
 import org.junit.Before;
@@ -44,14 +44,14 @@ public class CatalogTest extends MiniDbTestBase {
         
         try {
             Database.getCatalog().getTableId(null);
-            Assert.fail("Should not find table with null name");
+            fail("Should not find table with null name");
         } catch (NoSuchElementException e) {
             // Expected to get here
         }
         
         try {
             Database.getCatalog().getTableId("foo");
-            Assert.fail("Should not find table with name foo");
+            fail("Should not find table with name foo");
         } catch (NoSuchElementException e) {
             // Expected to get here
         }

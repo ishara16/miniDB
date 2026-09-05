@@ -1,7 +1,5 @@
 package minidb.systemtest;
 
-import minidb.systemtest.SystemTestUtil;
-
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -10,7 +8,6 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import minidb.*;

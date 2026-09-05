@@ -2,7 +2,6 @@ package minidb;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Knows how to compute some aggregate over a set of StringFields.
@@ -11,7 +10,6 @@ public class StringAggregator implements Aggregator {
     private int gbfield;
     private Type gbfieldtype;
     private int afield;
-    private Op what;
     private HashMap<Field, Integer> groupValToCount;
 
     /**
@@ -31,7 +29,6 @@ public class StringAggregator implements Aggregator {
         this.gbfield = gbfield;
         this.gbfieldtype = gbfieldtype;
         this.afield = afield;
-        this.what = what;
         groupValToCount = new HashMap<Field, Integer>();
     }
 
