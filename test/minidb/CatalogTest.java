@@ -63,7 +63,7 @@ public class CatalogTest extends MiniDbTestBase {
     @Test public void getDbFile() throws Exception {
         DbFile f = Database.getCatalog().getDbFile(-1);
 
-        // NOTE(ghuo): we try not to dig too deeply into the DbFile API here; we
+        // we try not to dig too deeply into the DbFile API here; we
         // rely on HeapFileTest for that. perform some basic checks.
         assertEquals(-1, f.getId());
     }

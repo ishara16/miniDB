@@ -6,7 +6,6 @@ import minidb.Database;
 
 /**
  * Base class for all MiniDb test classes. 
- * @author nizam
  *
  */
 public class MiniDbTestBase {

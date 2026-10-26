@@ -143,7 +143,7 @@ public class HeapPageTest extends MiniDbTestBase {
         HeapPage page = new HeapPage(pid, EXAMPLE_DATA);
         int free = page.getNumEmptySlots();
 
-        // NOTE(ghuo): this nested loop existence check is slow, but it
+        // this nested loop existence check is slow, but it
         // shouldn't make a difference for n = 504 slots.
 
         for (int i = 0; i < free; ++i) {

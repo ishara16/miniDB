@@ -38,7 +38,7 @@ public class HeapPageIdTest extends MiniDbTestBase {
     @Test public void testHashCode() {
         int code1, code2;
 
-        // NOTE(ghuo): the hashCode could be anything. test determinism,
+        // the hashCode could be anything. test determinism,
         // at least.
         pid = new HeapPageId(1, 1);
         code1 = pid.hashCode();

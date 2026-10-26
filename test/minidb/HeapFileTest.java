@@ -38,7 +38,7 @@ public class HeapFileTest extends TestUtil.CreateHeapFile {
     public void getId() throws Exception {
         int id = hf.getId();
 
-        // NOTE(ghuo): the value could be anything. test determinism, at least.
+        // the value could be anything. test determinism, at least.
         assertEquals(id, hf.getId());
         assertEquals(id, hf.getId());
 
@@ -70,7 +70,7 @@ public class HeapFileTest extends TestUtil.CreateHeapFile {
         HeapPageId pid = new HeapPageId(hf.getId(), 0);
         HeapPage page = (HeapPage) hf.readPage(pid);
 
-        // NOTE(ghuo): we try not to dig too deeply into the Page API here; we
+        // we try not to dig too deeply into the Page API here; we
         // rely on HeapPageTest for that. perform some basic checks.
         assertEquals(484, page.getNumEmptySlots());
         assertTrue(page.getSlot(1));

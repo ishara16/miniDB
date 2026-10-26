@@ -7,8 +7,6 @@ import java.util.*;
     It takes a query plan in the form of a high level DbIterator
     (built by initiating the constructors of query plans)
     and runs it as a part of a specified transaction.
-
-    @author Sam Madden
 */
 
 public class Query {
